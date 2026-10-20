@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio | Audri Kornelia</title>
+  <meta name="description" content="Portofolio Audri Kornelia Manapode — mahasiswa Teknik Informatika yang tertarik pada Data Engineering.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=DM+Sans:wght@400;500;600&family=Lora:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;600&family=Noto+Serif+KR:wght@300;400;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=skills1">
+</head>
+<body class="is-loading">
+
+  <div class="cursor" aria-hidden="true"></div>
+
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro__center">
+      <p class="intro__word" data-opening-word>오드리</p>
+      <div class="intro__line"><span class="intro__bar" id="introBar"></span></div>
+      <div class="intro__meta">
+        <span>AUDRI KORNELIA</span>
+        <span id="introCount">000</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="logo" href="#home" aria-label="Kembali ke atas">Audri <i>K</i></a>
+    <nav aria-label="Navigasi utama">
+      <ul class="nav">
+        <li><a href="#about">> About</a></li>
+        <li><a href="#skills"> Skill</a></li>
+        <li><a href="#principle"> Principle</a></li>
+        <li><a href="#projects"> Project</a></li>
+        <li><a href="#contact"> Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home" aria-label="Beranda">
+      <div class="hero__frame" id="heroFrame">
+
+        <div class="panel" id="panel">
+          <div class="panel__bar">
+            <button class="pbtn" id="musicBtn" type="button" aria-label="Pemutar musik" aria-expanded="false" aria-controls="musicPop">
+              <svg class="i-note" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              <svg class="i-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
+            <button class="pbtn" id="paletteBtn" type="button" aria-label="Warna font" aria-expanded="false" aria-controls="palettePop">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 1 10-10c0 3-2 4-4 4h-2a2 2 0 0 0-1 3.7c.7.5.4 2.3-3 2.3z"/><circle cx="7.5" cy="11" r="1" fill="currentColor"/><circle cx="12" cy="7" r="1" fill="currentColor"/><circle cx="16.5" cy="10" r="1" fill="currentColor"/></svg>
+            </button>
+          </div>
+
+          <div class="ppop" id="musicPop" hidden>
+            <p class="ppop__title">Musik</p>
+            <ul class="tracks" id="trackList"></ul>
+            <div class="ppop__row">
+              <button class="ppop__play" id="playPause" type="button">Putar</button>
+              <span class="ppop__status" id="musicStatus" role="status" aria-live="polite">Pilih lagu</span>
+            </div>
+          </div>
+
+          <div class="ppop" id="palettePop" hidden>
+            <p class="ppop__title">Warna font</p>
+            <div class="swatches" id="swatches">
+              <button type="button" class="swatch" data-color="#9dc183" style="--c:#9dc183" aria-label="Warna font #9dc183"></button>
+              <button type="button" class="swatch" data-color="#afeeee" style="--c:#afeeee" aria-label="Warna font #afeeee"></button>
+              <button type="button" class="swatch" data-color="#be93d4" style="--c:#be93d4" aria-label="Warna font #be93d4"></button>
+              <button type="button" class="swatch" data-color="#ffeda8" style="--c:#ffeda8" aria-label="Warna font #ffeda8"></button>
+            </div>
+            <button class="ppop__reset" id="resetColor" type="button">Kembali ke default</button>
+          </div>
+        </div>
+
+        <p class="hero__meta">Data Engineering </p>
+
+        <p class="hero__jp" data-opening-word>오드리</p>
+
+        <div class="hero__titlebox">
+          <h1 class="hero__title" aria-label="Audri Kornelia">
+            <span class="ch-wrap" aria-hidden="true"><span class="ch" style="--i:0">P</span></span>
+            <span class="ch-wrap" aria-hidden="true"><span class="ch" style="--i:1">O</span></span>
+            <span class="ch-wrap" aria-hidden="true"><span class="ch" style="--i:2">R</span></span>
+            <span class="ch-wrap" aria-hidden="true"><span class="ch" style="--i:3">T</span></span>
+            <span class="ch-wrap" aria-hidden="true"><span class="ch" style="--i:4">O</span></span>
+
+          </h1>
+          <span class="hero__sub" aria-hidden="true">Audri</span>
+        </div>
+
+        <figure class="hero__photo">
+          <img src="assets/img/porto-page2.png" alt="Foto Audri Kornelia" width="654" height="690">
+        </figure>
+
+        <div class="hero__news">
+          <p>Calon Data Engineer yang antusias mempelajari SQL, Python, dan pengolahan data untuk membangun pipeline data yang efisien dan terstruktur.</p>
+        </div>
+
+        <div class="hero__words">
+          <p class="hero__quote">If you fail, it’s not you who failed, it’s your approach</p>
+          <span class="hero__by">~Audri Kornelia~</span>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <div class="marquee__group">
+            <span>오드리</span><i>✦</i><span class="latin">Data Engineering</span><i>✦</i>
+            <span>오드리</span><i>✦</i><span class="latin">Data Engineering</span><i>✦</i>
+            <span>오드리</span><i>✦</i><span class="latin">Data Engineering</span><i>✦</i>
+            <span>오드리</span><i>✦</i><span class="latin">Data Engineering</span><i>✦</i>
+          </div>
+          <div class="marquee__group">
+            <span>오드리</span><i>✦</i><span class="latin">Data Engineering</span><i>✦</i>
+            <span>오드리</span><i>✦</i><span class="latin">Data Engineering</span><i>✦</i>
+            <span>오드리</span><i>✦</i><span class="latin">Data Engineering</span><i>✦</i>
+            <span>오드리</span><i>✦</i><span class="latin">Data Engineering</span><i>✦</i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <p class="eyebrow eyebrow--line reveal"> About</p>
+
+      <div class="about__grid">
+        <figure class="portrait reveal" id="aboutPhoto" aria-label="Area foto Audri Kornelia">
+
+          <div class="portrait__card">
+            <span class="portrait__shadow" aria-hidden="true"></span>
+            <div class="portrait__frame">
+              <img src="assets/img/porto-page3.png" alt="Audri Kornelia" draggable="false">
+              <span class="portrait__hint" aria-hidden="true">
+                <i class="portrait__pulse"></i>
+                <span class="portrait__hint-t portrait__hint-t--tap">Ketuk</span>
+              </span>
+            </div>
+          </div>
+
+          <button class="portrait__hit" type="button" aria-label="Foto Audri Kornelia. Gerakkan kursor atau ketuk untuk menggerakkan foto"></button>
+          <figcaption class="portrait__cap"></figcaption>
+        </figure>
+
+        <div class="about__side reveal" aria-hidden="true">
+          <span data-opening-word>오드리</span>
+        </div>
+
+        <div class="about__text">
+          <h2 class="about__title reveal">Halo.</h2>
+          <h2 class="about__title reveal">I'm <em>Audri!</em></h2>
+          <p class="about__desc reveal">Saya adalah Audri Kornelia Manapode, mahasiswa Teknik Informatika yang memiliki ketertarikan dalam bidang Data Engineering, khususnya pengelolaan database, pemrosesan data, dan pengembangan pipeline data. Saya memiliki pemahaman dasar mengenai SQL, MySQL, perancangan database relasional, optimasi query, serta pengolahan data menggunakan Python. Saat ini, saya terus mengembangkan pengetahuan dan keterampilan dalam integrasi serta pengelolaan data, dengan tujuan membangun kompetensi sebagai Data Engineer yang mampu menghasilkan solusi data yang efisien, terstruktur, dan andal.</p>
+
+          <dl class="facts reveal">
+            <div><dt>Nama</dt><dd>Audri Kornelia Manapode</dd></div>
+            <div><dt>Jurusan</dt><dd>Teknik Informatika</dd></div>
+            <div><dt>Lahir</dt><dd>Jakarta, 24 April 2006</dd></div>
+            <div><dt>Hobi</dt><dd>Nonton dan dengerin musik.</dd></div>
+          </dl>
+
+          <blockquote class="about__quote reveal">
+            <span class="about__qlabel">Words I Live By</span>
+            <p>If you fail, it’s not you who failed, it’s your approach</p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills" id="skills">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow reveal"><span class="acc">Keahlian</span></p>
+          <h2 class="sec-title reveal">Teknologi yang <em>saya gunakan.</em></h2>
+        </div>
+        <p class="sec-desc reveal">Teknologi yang saya gunakan dan terus kembangkan.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal" tabindex="0" role="button" aria-pressed="false">
+          <div class="card__art"><svg viewBox="0 0 240 150" aria-hidden="true"><rect class="il-fill" x="20" y="12" width="200" height="126" rx="10"/><path class="il-line" d="M20 34h200"/><circle class="il-dot" cx="34" cy="23" r="2.5"/><circle class="il-dot" cx="44" cy="23" r="2.5"/><circle class="il-dot" cx="54" cy="23" r="2.5"/><rect class="il-soft" x="30" y="44" width="42" height="84" rx="5"/><path class="il-line" d="M38 56h26M38 66h18M38 76h22"/><rect class="il-soft" x="80" y="44" width="130" height="14" rx="4"/><rect class="il-acc ui-acc" x="80" y="66" width="62" height="38" rx="5"/><rect class="il-soft" x="148" y="66" width="62" height="38" rx="5"/><rect class="il-soft" x="80" y="112" width="130" height="16" rx="4"/><path class="ui-cursor" d="M186 112l0 16 4-4 3 7 3-1.5-3-7 6 0z"/></svg></div>
+          <h3>Desain UI/UX</h3>
+          <p>Membuat tampilan yang rapi, nyaman, dan mudah digunakan.</p>
+          <ul class="logos"><li class="logo-chip" tabindex="0" data-name="Figma"><img src="assets/tools/figma.svg" alt="Figma" width="26" height="26" loading="lazy" draggable="false"></li><li class="logo-chip" tabindex="0" data-name="Canva"><img src="assets/tools/canva.svg" alt="Canva" width="26" height="26" loading="lazy" draggable="false"></li></ul>
+        </article>
+
+        <article class="card reveal" tabindex="0" role="button" aria-pressed="false">
+          <div class="card__art"><svg viewBox="0 0 240 150" aria-hidden="true"><path class="il-fill" d="M58 38V100a32 10 0 0 0 64 0V38"/><path class="il-line" d="M58 62a32 10 0 0 0 64 0M58 81a32 10 0 0 0 64 0"/><ellipse class="il-soft" cx="90" cy="38" rx="32" ry="10"/><path class="il-link flow" d="M122 70H146V43H170M146 70V107H170"/><circle class="il-accfill" cx="146" cy="70" r="4"/><rect class="il-fill" x="170" y="28" width="46" height="30" rx="6"/><path class="il-acc-line" d="M178 37h18"/><path class="il-line" d="M178 45h30M178 51h22"/><rect class="il-fill" x="170" y="92" width="46" height="30" rx="6"/><path class="il-line" d="M178 101h30M178 107h22M178 113h26"/></svg></div>
+          <h3>Data &amp; Pengembangan</h3>
+          <p>Mengelola dan mengolah data untuk kebutuhan aplikasi.</p>
+          <ul class="logos"><li class="logo-chip" tabindex="0" data-name="Python"><img src="assets/tools/python.svg" alt="Python" width="26" height="26" loading="lazy" draggable="false"></li><li class="logo-chip" tabindex="0" data-name="MySQL"><img src="assets/tools/mysql.svg" alt="MySQL" width="26" height="26" loading="lazy" draggable="false"></li><li class="logo-chip" tabindex="0" data-name="PostgreSQL"><img src="assets/tools/postgresql.svg" alt="PostgreSQL" width="26" height="26" loading="lazy" draggable="false"></li></ul>
+        </article>
+
+        <article class="card reveal" tabindex="0" role="button" aria-pressed="false">
+          <div class="card__art"><svg viewBox="0 0 240 150" aria-hidden="true"><g transform="translate(14 0)"><path class="il-fill" d="M72 84C54 84 46 70 52 58C56 49 66 46 74 48C78 34 92 26 108 28C124 30 134 40 136 50C150 48 162 58 160 70C159 79 152 84 142 84Z"/><path class="il-acc-line cl-arrow" d="M106 70V50M98 57l8-8 8 8"/><path class="il-link flow" d="M106 84V104M57 104H155M57 104V114M155 104V114M106 104V114"/><rect class="il-soft" x="45" y="114" width="24" height="16" rx="4"/><rect class="il-acc" x="94" y="114" width="24" height="16" rx="4"/><rect class="il-soft" x="143" y="114" width="24" height="16" rx="4"/></g></svg></div>
+          <h3>Cloud</h3>
+          <p>Mengenal layanan cloud untuk penyimpanan dan analisis data.</p>
+          <ul class="logos"><li class="logo-chip" tabindex="0" data-name="Google Cloud"><img src="assets/tools/google-cloud.svg" alt="Google Cloud" width="26" height="26" loading="lazy" draggable="false"></li><li class="logo-chip" tabindex="0" data-name="BigQuery"><img src="assets/tools/bigquery.svg" alt="BigQuery" width="26" height="26" loading="lazy" draggable="false"></li></ul>
+        </article>
+      </div>
+
+      <div class="tools reveal" id="tools">
+        <p class="tools__title"><span>Tools Lainnya</span></p>
+        <div class="tools__viewport">
+          <div class="tools__track">
+            <ul class="tools__group" aria-label="Tools lainnya"><li class="tool" tabindex="0" role="button" aria-pressed="false" data-tool="canva"><img src="assets/tools/git.svg" alt="" width="36" height="36" draggable="false"><span class="tool__txt"><b>Git</b><small>Kontrol Versi</small></span></li><li class="tool" tabindex="0" role="button" aria-pressed="false" data-tool="github"><img src="assets/tools/github.svg" alt="" width="36" height="36" draggable="false"><span class="tool__txt"><b>GitHub</b><small>Repositori Kode</small></span></li><li class="tool" tabindex="0" role="button" aria-pressed="false" data-tool="vscode"><img src="assets/tools/vscode.svg" alt="" width="36" height="36" draggable="false"><span class="tool__txt"><b>Visual Studio Code</b><small>Code Editor</small></span></li><li class="tool" tabindex="0" role="button" aria-pressed="false" data-tool="excel"><img src="assets/tools/excel.svg" alt="" width="36" height="36" draggable="false"><span class="tool__txt"><b>Excel</b><small>Spreadsheet</small></span></li><li class="tool" tabindex="0" role="button" aria-pressed="false" data-tool="powerbi"><img src="assets/tools/powerbi.svg" alt="" width="36" height="36" draggable="false"><span class="tool__txt"><b>Power BI</b><small>Visualisasi Data</small></span></li><li class="tool" tabindex="0" role="button" aria-pressed="false" data-tool="looker-studio"><img src="assets/tools/looker-studio.svg" alt="" width="36" height="36" draggable="false"><span class="tool__txt"><b>Looker Studio</b><small>Dashboard Data</small></span></li></ul>
+            <ul class="tools__group" aria-hidden="true"><li class="tool"  data-tool="canva"><img src="assets/tools/git.svg" alt="" width="36" height="36" draggable="false"><span class="tool__txt"><b>Git</b><small>Kontrol Versi</small></span></li><li class="tool"  data-tool="github"><img src="assets/tools/github.svg" alt="" width="36" height="36" draggable="false"><span class="tool__txt"><b>GitHub</b><small>Repositori Kode</small></span></li><li class="tool"  data-tool="vscode"><img src="assets/tools/vscode.svg" alt="" width="36" height="36" draggable="false"><span class="tool__txt"><b>Visual Studio Code</b><small>Code Editor</small></span></li><li class="tool"  data-tool="excel"><img src="assets/tools/excel.svg" alt="" width="36" height="36" draggable="false"><span class="tool__txt"><b>Excel</b><small>Spreadsheet</small></span></li><li class="tool"  data-tool="powerbi"><img src="assets/tools/powerbi.svg" alt="" width="36" height="36" draggable="false"><span class="tool__txt"><b>Power BI</b><small>Visualisasi Data</small></span></li><li class="tool"  data-tool="looker-studio"><img src="assets/tools/looker-studio.svg" alt="" width="36" height="36" draggable="false"><span class="tool__txt"><b>Looker Studio</b><small>Dashboard Data</small></span></li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="principle" id="principle">
+      <div class="principle__inner">
+        <p class="eyebrow eyebrow--center reveal"> Words I Live By</p>
+        <blockquote class="quote" id="quote">
+          <p>If you fail, it’s not you who failed, it’s your approach</p>
+        </blockquote>
+        <p class="principle__by reveal">~Audri Kornelia~</p>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow reveal"><span class="acc">Proyek</span></p>
+          <h2 class="sec-title reveal">Proyek <em>terbaru saya.</em></h2>
+        </div>
+        <p class="sec-desc reveal">Karya dan eksperimen yang saya buat untuk terus berkembang.</p>
+      </div>
+
+      <div class="proj-grid">
+        <article class="proj reveal">
+          <div class="proj__visual proj__visual--a" data-project-visual aria-label="Pratinjau desain antarmuka aplikasi barbershop">
+            <img class="proj__image" src="assets/projects/uiux-barbershop.png" alt="Kumpulan layar antarmuka aplikasi barbershop" loading="lazy" draggable="false">
+          </div>
+          <div class="proj__meta"><span class="proj__cat">Desain UI/UX · 2025</span><span class="proj__no">01</span></div>
+          <h3>Desain UI/UX</h3>
+          <p>Desain aplikasi barbershop dengan tampilan jelas dan alur yang nyaman.</p>
+          <ul class="proj-logos" aria-label="Tools Desain UI/UX">
+            <li><img src="assets/tools/figma.svg" alt="Figma" width="30" height="30" loading="lazy"></li>
+            <li><img src="assets/tools/canva.svg" alt="Canva" width="30" height="30" loading="lazy"></li>
+          </ul>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj__visual proj__visual--b" data-project-visual aria-label="Pratinjau dashboard performa program pelatihan">
+            <img class="proj__image" src="assets/projects/data-dashboard.png" alt="Dashboard performa program pelatihan TOS, SOS, dan MOS" loading="lazy" draggable="false">
+          </div>
+          <div class="proj__meta"><span class="proj__cat">Data · 2026</span><span class="proj__no">02</span></div>
+          <h3>Insight Dashboard</h3>
+          <p>Dashboard ringkas untuk memantau performa pelatihan TOS, SOS, dan MOS.</p>
+          <ul class="proj-logos" aria-label="Tools dashboard">
+            <li><img src="assets/tools/sql.svg" alt="SQL" width="30" height="30" loading="lazy"></li>
+            <li><img src="assets/tools/charts.svg" alt="Charts" width="30" height="30" loading="lazy"></li>
+            <li><img src="assets/tools/ui.svg" alt="UI" width="30" height="30" loading="lazy"></li>
+          </ul>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj__visual proj__visual--c proj__visual--carousel" data-project-visual data-cloud-carousel tabindex="0" role="button" aria-label="Pratinjau eksperimen Google Cloud. Klik atau ketuk untuk mengganti gambar." aria-pressed="false">
+            <img class="proj__image proj__image--cloud is-active" src="assets/projects/cloud-experiment-1.png" alt="Skill badge Streaming Analytics into BigQuery" loading="lazy" draggable="false">
+            <img class="proj__image proj__image--cloud" src="assets/projects/cloud-experiment-2.png" alt="Skill badge Implement Cloud Collaboration and Productivity Workflows" loading="lazy" draggable="false">
+            <span class="proj__image-count" aria-hidden="true">01 / 02</span>
+          </div>
+          <div class="proj__meta"><span class="proj__cat">Komputasi Awan · Pembelajaran</span><span class="proj__no">03</span></div>
+          <h3>Cloud Lab Notes</h3>
+          <p>Dokumentasi praktik Google Cloud, analitik data, dan alur kolaborasi.</p>
+          <ul class="proj-logos" aria-label="Tools Cloud Lab Notes">
+            <li><img src="assets/tools/google-cloud.svg" alt="Google Cloud" width="30" height="30" loading="lazy"></li>
+            <li><img src="assets/tools/git.svg" alt="Git" width="30" height="30" loading="lazy"></li>
+            <li><img src="assets/tools/documentation.svg" alt="Dokumentasi" width="30" height="30" loading="lazy"></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="eyebrow eyebrow--line reveal"> Contact</p>
+      <h2 class="contact__title reveal">Terima kasih sudah <em>mampir!</em></h2>
+
+      <ul class="links reveal">
+        <li><a href="https://www.instagram.com/dryy.sia/" id="linkInstagram" target="_blank" rel="noopener noreferrer"><span>Instagram</span><b aria-hidden="true">↗</b></a></li>
+        <li><a href="mailto:audrymanapode@gmail.com" id="linkEmail"><span>Email</span><b aria-hidden="true">↗</b></a></li>
+        <li><a href="https://www.tiktok.com/@adatitikkomaa?_r=1&_t=ZS-9AUC8SLNWlQ" id="linkTiktok" target="_blank" rel="noopener noreferrer"><span>TikTok</span><b aria-hidden="true">↗</b></a></li>
+      </ul>
+
+      <div class="foot-row">
+        <span class="foot-row__place">Data Engineering</span>
+        <button class="totop" id="toTop" type="button" aria-label="Kembali ke atas"><span>Kembali ke atas</span><b aria-hidden="true">↑</b></button>
+      </div>
+
+      <div class="bigname" aria-label="Audri">
+        <span aria-hidden="true">A</span><span aria-hidden="true">U</span><span aria-hidden="true">D</span><span aria-hidden="true">R</span><span aria-hidden="true">I</span>
+      </div>
+      <p class="copyright">2026 AUDRI KORNELIA PORTOFOLIO</p>
+    </section>
+
+  </main>
+
+  <audio id="player" preload="none"></audio>
+  <script src="script.js?v=skills1"></script>
+</body>
+</html>
