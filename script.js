@@ -641,3 +641,29 @@ $$('[data-opening-word]').forEach(el => { el.textContent = OPENING_WORD; });
   });
   trackBtns[0].classList.add('is-current');
 })();
+
+
+/* Mobile hamburger navigation; all existing interactions remain unchanged. */
+(function mobileNavigation() {
+  const header = document.getElementById('siteHeader');
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('mainNav');
+  if (!header || !toggle || !nav) return;
+
+  function closeMenu() {
+    header.classList.remove('is-menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Buka menu navigasi');
+  }
+
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    header.classList.toggle('is-menu-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+  });
+
+  nav.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 800) closeMenu(); });
+})();
