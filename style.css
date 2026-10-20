@@ -755,119 +755,84 @@ img[src*="canva.svg"] { filter: none !important; opacity: 1; mix-blend-mode: nor
 }
 
 
-/* Responsive refinements: desktop rules above remain unchanged. */
-.site-header { gap: 1rem; }
-.site-nav { min-width: 0; }
-.nav-toggle {
-  display: none;
-  width: 44px; height: 44px; flex: 0 0 44px;
-  align-items: center; justify-content: center; flex-direction: column; gap: 5px;
-  border: 1px solid var(--line); border-radius: 50%;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  position: relative; z-index: 902;
-  -webkit-tap-highlight-color: transparent;
-}
-.nav-toggle span {
-  display: block; width: 18px; height: 1.5px; border-radius: 2px;
-  background: currentColor; transition: transform .25s ease, opacity .2s ease;
-}
-.nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(6.5px) rotate(45deg); }
-.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-6.5px) rotate(-45deg); }
-
+/* =========================================================
+   MOBILE LAYOUT PATCH — menjaga desain desktop yang ada,
+   hanya mengubah susunan kartu Skills dan Projects di layar kecil.
+   ========================================================= */
 @media (max-width: 800px) {
-  .site-header { padding-inline: clamp(1rem, 5vw, 1.5rem); }
-  .nav-toggle { display: flex; margin-left: auto; }
-  .site-nav {
-    position: absolute; top: calc(100% + 8px); left: 1rem; right: 1rem;
-    z-index: 901; padding: .65rem;
-    background: color-mix(in srgb, var(--bg) 96%, transparent);
-    border: 1px solid var(--line); border-radius: 14px;
-    box-shadow: 0 18px 42px rgba(0,0,0,.24);
-    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    visibility: hidden; opacity: 0; pointer-events: none;
-    transform: translateY(-8px);
-    transition: opacity .22s ease, transform .22s ease, visibility .22s;
+  /* Kartu skill tetap sejajar horizontal dan bisa digeser/swipe. */
+  .skills .cards {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-columns: minmax(78%, 420px);
+    grid-auto-flow: column;
+    gap: 1rem;
+    max-width: none;
+    margin-top: 2rem;
+    margin-right: calc(-1 * var(--gutter));
+    padding: .25rem var(--gutter) 1.1rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(17,17,17,.35) transparent;
   }
-  .site-nav.is-open {
-    visibility: visible; opacity: 1; pointer-events: auto; transform: translateY(0);
+  .skills .cards > .card {
+    width: 100%;
+    min-width: 0;
+    min-height: 330px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 1.2rem;
   }
-  .nav { display: grid; grid-template-columns: 1fr; gap: .15rem; }
-  .nav a {
-    display: flex; align-items: center; min-height: 44px;
-    padding: .7rem .85rem; border-radius: 8px;
-    font-size: .75rem; letter-spacing: .12em;
+  .skills .card__art { min-height: 120px; margin: .35rem 0 .75rem; }
+  .skills .card__art svg { max-width: 220px; }
+  .skills .card h3 { font-size: 1.35rem; }
+  .skills .card p { min-height: 4.5em; margin: .65rem 0 1rem; font-size: .88rem; }
+  .skills .logos { gap: .5rem; }
+  .skills .logo-chip { width: 40px; height: 40px; }
+
+  /* Project juga horizontal, satu kartu tampil dominan setiap swipe. */
+  .projects .proj-grid {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-columns: minmax(82%, 460px);
+    grid-auto-flow: column;
+    gap: 1rem;
+    max-width: none;
+    margin-top: 2rem;
+    margin-right: calc(-1 * var(--gutter));
+    padding: .25rem var(--gutter) 1.1rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.35) transparent;
   }
-  .nav a:hover, .nav a:focus-visible, .nav a.is-active {
-    background: color-mix(in srgb, var(--font-color) 10%, transparent);
+  .projects .proj {
+    min-width: 0;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: .8rem;
   }
-  .nav a::after { display: none; }
-  .site-header.menu-open { background: color-mix(in srgb, var(--bg) 94%, transparent); }
+  .projects .proj__visual { aspect-ratio: 3 / 2; }
+  .projects .proj h3 { font-size: 1.25rem; }
+  .projects .proj p { font-size: .85rem; }
 
-  section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
-  .hero { min-height: 100svh; height: auto; padding: 10px; }
-  .hero__frame { min-width: 0; }
-  .hero__titlebox { font-size: clamp(4.4rem, 21vw, 9rem); }
-  .hero__photo { max-width: min(100%, 440px); }
-  .hero__news, .hero__words { width: 100%; overflow-wrap: anywhere; }
-  .about, .skills, .projects, .contact { min-width: 0; }
-  .about__text, .about__desc, .sec-desc, .proj p, .contact p { overflow-wrap: anywhere; }
-  .cards, .proj-grid { grid-template-columns: minmax(0, 1fr); width: 100%; }
-  .card, .proj { min-width: 0; }
-  .card__art { width: 100%; }
-  .card__art svg { max-width: 100%; }
-  .principle__inner { width: 100%; }
-  .principle__inner h2 { overflow-wrap: anywhere; }
-  .contact__title { overflow-wrap: anywhere; }
-  .bigname { font-size: clamp(4rem, 24vw, 10rem); }
-  .marquee { max-width: 100%; }
+  /* Petunjuk swipe tanpa menambah elemen atau mengubah HTML. */
+  .skills .cards, .projects .proj-grid {
+    scrollbar-gutter: stable;
+  }
 }
 
-@media (max-width: 430px) {
-  :root { --gutter: 1rem; --header-h: 60px; }
-  .site-header { gap: .5rem; }
-  .logo { font-size: 1rem; }
-  .hero { padding: 8px; }
-  .hero__frame { padding: 4.5rem .9rem 1.4rem; }
-  .panel { top: 10px; left: 10px; }
-  .hero__meta { top: 18px; right: 12px; max-width: 45%; text-align: right; }
-  .hero__titlebox { font-size: clamp(3.8rem, 20.5vw, 5.7rem); }
-  .hero__news { font-size: .82rem; }
-  .hero__quote { font-size: .9rem; }
-  .about, .skills, .projects, .contact { padding-inline: 1rem; }
-  .sec-title { font-size: clamp(2rem, 9vw, 3rem); }
-  .facts > div { grid-template-columns: minmax(5rem, .7fr) minmax(0, 1.3fr); gap: .6rem; }
-  .links { min-width: 0; }
-  .foot-row { align-items: flex-start; flex-wrap: wrap; }
-  .copyright { letter-spacing: .12em; font-size: .55rem; }
+@media (max-width: 420px) {
+  .skills .cards { grid-auto-columns: 84%; }
+  .projects .proj-grid { grid-auto-columns: 88%; }
+  .skills .card { padding: 1rem; }
+  .projects .proj { padding: .7rem; }
 }
-
-@media (max-width: 350px) {
-  .hero__titlebox { font-size: 19vw; }
-  .hero__frame { padding-inline: .7rem; }
-  .hero__meta { font-size: .75rem; }
-  .facts > div { grid-template-columns: 1fr; gap: .15rem; }
-  .proj__meta { flex-wrap: wrap; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .nav-toggle span, .site-nav { transition-duration: .01ms; }
-}
-
-
-/* Chrome "Situs desktop" pada HP: tampilkan navigasi desktop. */
-html.desktop-site-mode .nav-toggle { display: none; }
-html.desktop-site-mode .site-nav {
-  position: static; visibility: visible; opacity: 1; pointer-events: auto;
-  transform: none; padding: 0; border: 0; border-radius: 0; box-shadow: none;
-  background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none;
-}
-html.desktop-site-mode .nav {
-  display: flex; grid-template-columns: none;
-  gap: clamp(1rem, 2.4vw, 2.4rem);
-}
-html.desktop-site-mode .nav a {
-  display: inline-block; min-height: 0; padding: .3rem 0; border-radius: 0;
-  font: 500 .66rem/1 var(--sans); letter-spacing: .2em;
-}
-html.desktop-site-mode .nav a::after { display: block; }
