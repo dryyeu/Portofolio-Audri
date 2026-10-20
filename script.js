@@ -83,6 +83,30 @@ $$('[data-opening-word]').forEach(el => { el.textContent = OPENING_WORD; });
   const header = $('#siteHeader');
   const home = $('#home');
   const links = $$('.nav a');
+  const toggle = $('#navToggle');
+  const navPanel = $('#primaryNav');
+  const mobileNav = window.matchMedia('(max-width: 800px)');
+
+  function setMenu(open) {
+    if (!toggle || !navPanel) return;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+    navPanel.classList.toggle('is-open', open);
+    header.classList.toggle('menu-open', open);
+  }
+
+  if (toggle && navPanel) {
+    toggle.addEventListener('click', () => {
+      setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { setMenu(false); toggle.focus(); }
+    });
+    document.addEventListener('click', e => {
+      if (!header.contains(e.target)) setMenu(false);
+    });
+    mobileNav.addEventListener('change', e => { if (!e.matches) setMenu(false); });
+  }
 
   function toggleHeader() {
     const bottom = home.getBoundingClientRect().bottom;
@@ -109,7 +133,8 @@ $$('[data-opening-word]').forEach(el => { el.textContent = OPENING_WORD; });
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setMenu(false);
+      target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
     });
   });
 })();
