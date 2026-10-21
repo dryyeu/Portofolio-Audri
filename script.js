@@ -642,8 +642,6 @@ $$('[data-opening-word]').forEach(el => { el.textContent = OPENING_WORD; });
   trackBtns[0].classList.add('is-current');
 })();
 
-
-/* Mobile hamburger navigation; all existing interactions remain unchanged. */
 (function mobileNavigation() {
   const header = document.getElementById('siteHeader');
   const toggle = document.getElementById('navToggle');
