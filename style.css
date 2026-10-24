@@ -1,9 +1,8 @@
 :root {
 
   --font-color: #e4577a;
-  --pink: #202126;
+  --dark: #202126;
   --bg: #202126;
-  --cream: #292a2e;
   --card-hover: #36373d;
   --accent: #c8643c;
   --ink-dark: #f0e9ec;
@@ -71,7 +70,7 @@ section[id] { scroll-margin-top: 0; }
 
 .intro {
   position: fixed; inset: 0; z-index: 10000;
-  background: var(--pink);
+  background: var(--dark);
   color: var(--ink-dark);
   text-shadow: none;
   display: grid; place-items: center;
@@ -168,10 +167,6 @@ section[id] { scroll-margin-top: 0; }
   background: var(--bg);
   overflow: hidden;
   transition: background-color .5s ease;
-}
-
-.hero {
-
   --h-base:  color-mix(in srgb, var(--font-color)  6%, #202126);
   --h-peach: color-mix(in srgb, var(--font-color) 16%, #343038);
   --h-rose:  color-mix(in srgb, var(--font-color) 42%, #392b33);
@@ -270,7 +265,7 @@ section[id] { scroll-margin-top: 0; }
   max-width: 96%;
   transform: translateX(-50%) translateY(30px); opacity: 0;
 }
-.hero__photo img { height: 100%; width: 100%; object-fit: contain; object-position: 50% 100%; }
+.hero__photo img { height: 100%; width: 100%; object-fit: contain; object-position: 50% 100%; transform-origin: 50% 100%; }
 .hero__news {
   position: absolute; left: 2.6%; bottom: calc(14px + 6.2rem); z-index: 4;
   width: min(25%, 320px);
@@ -290,7 +285,6 @@ body.is-ready .hero__sub {
 
 body.is-ready .hero__photo { opacity: 1; transform: translateX(-50%); transition: opacity 1.5s .5s ease, transform 1.5s .5s cubic-bezier(.2, .8, .2, 1); }
 
-.hero__photo img { transform-origin: 50% 100%; }
 .hero__photo.is-click img { animation: photoPress .6s cubic-bezier(.2, .8, .2, 1); }
 @keyframes photoPress { 0% { transform: scale(1); } 30% { transform: scale(.975); } 100% { transform: scale(1); } }
 .hero__ripple {
@@ -818,4 +812,25 @@ img[src*="canva.svg"] { filter: none !important; opacity: 1; mix-blend-mode: nor
 }
 @media (max-width: 800px) {
   .marquee { bottom: -16px; left: -2%; right: -2%; }
+}
+
+@media (max-width: 640px) {
+  .skills .cards,
+  .projects .proj-grid {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(78%, 1fr);
+    max-width: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+  }
+
+  .skills .card,
+  .projects .proj {
+    min-width: 0;
+    scroll-snap-align: start;
+  }
 }
