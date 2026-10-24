@@ -14,8 +14,6 @@ const CONTACT = {
   tiktok: 'https://www.tiktok.com/@adatitikkomaa?_r=1&_t=ZS-9AUC8SLNWlQ'
 };
 
-const PROJECT_LINKS = ['', '', ''];
-
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const clamp = (n, a, b) => Math.min(b, Math.max(a, n));
@@ -84,12 +82,14 @@ $$('[data-opening-word]').forEach(el => { el.textContent = OPENING_WORD; });
   const home = $('#home');
   const links = $$('.nav a');
 
-  function toggleHeader() {
-    const bottom = home.getBoundingClientRect().bottom;
-    header.classList.toggle('is-visible', bottom < window.innerHeight * 0.55);
+  if (header && home) {
+    function toggleHeader() {
+      const bottom = home.getBoundingClientRect().bottom;
+      header.classList.toggle('is-visible', bottom < window.innerHeight * 0.55);
+    }
+    window.addEventListener('scroll', toggleHeader, { passive: true });
+    toggleHeader();
   }
-  window.addEventListener('scroll', toggleHeader, { passive: true });
-  toggleHeader();
 
   const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
   const io = new IntersectionObserver(entries => {
@@ -134,6 +134,7 @@ $$('[data-opening-word]').forEach(el => { el.textContent = OPENING_WORD; });
 (function skew() {
   if (reduceMotion) return;
   const frame = $('#heroFrame');
+  if (!frame) return;
   let last = window.scrollY, current = 0, running = false;
   function step() {
     const y = window.scrollY;
@@ -381,9 +382,9 @@ $$('[data-opening-word]').forEach(el => { el.textContent = OPENING_WORD; });
   if (!root) return;
   const view = $('.tools__viewport', root), track = $('.tools__track', root);
   const groups = $$('.tools__group', root);
+  if (!view || !track || !groups.length) return;
   const base = Array.from(groups[0].children);
   const SPEED = 40;
-  let lastW = 0;
 
   function build() {
     const vw = view.clientWidth;
@@ -398,7 +399,7 @@ $$('[data-opening-word]').forEach(el => { el.textContent = OPENING_WORD; });
       }));
     }
     const w = groups[0].getBoundingClientRect().width;
-    if (w) { track.style.setProperty('--dur', (w / SPEED).toFixed(1) + 's'); lastW = vw; }
+    if (w) track.style.setProperty('--dur', (w / SPEED).toFixed(1) + 's');
   }
 
   function select(el) {
